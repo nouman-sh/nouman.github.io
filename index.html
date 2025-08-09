@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammed Nouman - Portfolio</title>
+  <!-- Use the Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC; /* Soft Gray */
+      scroll-behavior: smooth;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 10px,
+        #f3f4f6 10px,
+        #f3f4f6 20px
+      );
+    }
+  
+    /* Floating animation for main image */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(6deg);}
+      50% { transform: translateY(-15px) rotate(6deg);}
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+  
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    /* Gradient text for headings - Deep Blue to Teal */
+    .gradient-text {
+      background: linear-gradient(90deg, #1E3A8A 0%, #14B8A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    /* Subtle hover on header text */
+    h1:hover {
+      color: #14B8A6;
+      transition: color 0.4s ease;
+      cursor: default;
+    }
+  
+    /* Pulsate effect on project buttons */
+    .pulsate {
+      animation: pulsateAnim 2.5s ease-in-out infinite;
+    }
+    @keyframes pulsateAnim {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6); }
+      50% { box-shadow: 0 0 8px 8px rgba(20, 184, 166, 0); }
+    }
+  
+    /* Social icons bounce on hover */
+    .social-icon:hover {
+      animation: bounce 0.4s;
+      color: #14B8A6 !important;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-6px);}
+    }
+  
+    /* Project image hover scale + shadow */
+    .project-img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(30, 58, 138, 0.4);
+      border-radius: 1rem;
+    }
+  
+    /* Section separator line */
+    .section-separator {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #14B8A6, transparent);
+      margin: 4rem 0;
+    }
+  
+    /* Remove white background boxes */
+    #about-me > div,
+    #projects > div.flex {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+  
+    /* Responsive image visibility and size */
+    @media (max-width: 767px) {
+      .header-image-container {
+        display: none !important;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .header-image-container img {
+        width: 180px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .header-image-container img {
+        width: 280px !important;
+      }
+    }
+  </style>
+  
+</head>
+<body class="bg-[#F3F2F6] text-[#2D2D2D]">
+
+  <!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-[#F3F2F6] bg-opacity-95 backdrop-blur-sm shadow-sm py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">Mohammed Nouman Shariff</a>
+      <div id="nav-links" class="space-x-8 hidden md:flex">
+        <a href="#about-me" class="hover:text-[#FFD864] transition-colors duration-300">About me</a>
+        <a href="#projects" class="hover:text-[#FFD864] transition-colors duration-300">Projects</a>
+        <a href="#getting-in-touch" class="hover:text-[#FFD864] transition-colors duration-300">Contact</a>
+      </div>
+      <!-- Mobile Menu button -->
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Mobile menu items -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#F3F2F6] px-4 py-4 space-y-4 shadow-md">
+      <a href="#about-me" class="block hover:text-[#FFD864] transition-colors duration-300">About me</a>
+      <a href="#projects" class="block hover:text-[#FFD864] transition-colors duration-300">Projects</a>
+      <a href="#getting-in-touch" class="block hover:text-[#FFD864] transition-colors duration-300">Contact</a>
+    </div>
+  </nav>
+  
+  </nav>
+
+  <!-- Main container -->
+  <div class="container mx-auto px-4 py-8 md:py-16">
+
+    <!-- Header Section -->
+    <header class="relative flex flex-col md:flex-row items-center md:items-start justify-between mb-16 md:mb-24">
+      <div class="md:w-1/2 text-center md:text-left z-10 mb-8 md:mb-0 md:mt-44">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 gradient-text">
+          Hello, I am<br>Mohammed Nouman Shariff
+        </h1>
+        <p class="text-lg mb-6 max-w-sm mx-auto md:mx-0 text-gray-600">
+            Computer Science Engineering graduate with a keen interest in cloud computing and security. I’m passionate about building secure and scalable solutions in the cloud.
+
+
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#projects" class="bg-[#21888d] text-black font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl">
+            Projects
+          </a>
+          <a href="assets/Mohammedn_Nouman_CV.pdf" download class="bg-white text-gray-800 font-semibold py-3 px-8 rounded-full shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <div class="relative md:w-1/2 flex justify-center md:justify-end header-image-container">
+        <div class="absolute inset-0 bg-[#47677d] rounded-bl-[100px] md:rounded-bl-[200px] md:rounded-tl-none md:rounded-br-[200px] transform -rotate-12 md:rotate-0 translate-x-20 md:translate-x-0 -translate-y-20 md:translate-y-0 h-[600px] w-[400px] md:h-[700px] md:w-[700px] md:top-[-100px] md:right-[-100px] lg:right-[-150px]"></div>
+        <img src="https://placehold.co/400x500/FFD864/2D2D2D?text=Mohammed Nouman" alt="Mohammed Nouman" class="relative z-10 h-auto rounded-xl shadow-2xl rotate-3 md:rotate-6 float-animation" />
+      </div>
+    </header>
+
+    <div class="section-separator"></div>
+
+    <!-- About Me Section -->
+    <!-- <section id="about-me" class="mt-96 py-12 md:py-24 fade-in"> -->
+        <section id="about-me" class="mt-12 md:mt-48 py-12 md:py-24 fade-in">
+
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 md:mb-12 relative inline-block gradient-text">
+        About me
+        <span class="block w-20 h-1 bg-[#FFD864] rounded-full mx-auto mt-2"></span>
+      </h2>
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 p-6 md:p-10 relative overflow-hidden">
+        <div class="md:w-1/2 overflow-hidden rounded-lg shadow-lg">
+          <img src="https://placehold.co/600x400/94a3b8/ffffff?text=My+Story" alt="My story" class="w-full h-auto" />
+        </div>
+        <div class="md:w-1/2 text-center md:text-left">
+          <p class="text-gray-700 mb-4 flex items-start gap-3 text-lg leading-relaxed">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 text-[#FFD864]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z"></path>
+              <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+            </svg>
+            My name is Mohammed Nouman Shariff. I am a Bachelor of Engineering graduate in Computer Science and Engineering with a strong passion for cloud computing and security. 
+            I have completed hands-on projects, 
+            working with Azure and Terraform, and I am currently gaining practical experience working with Azure cloud platforms. I enjoy building scalable and 
+            secure solutions while continuously learning and growing my skills. I’m motivated, a quick learner, and eager to solve real-world problems using modern technologies.
+
+
+          </p>
+          
+        </div>
+      </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="my-projects">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 md:mb-12 relative inline-block gradient-text">
+        Projects
+        <span class="block w-20 h-1 bg-[#FFD864] rounded-full mx-auto mt-2"></span>
+      </h2>
+
+      <!-- Project 1 -->
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 p-6 md:p-10 mb-10">
+        <div class="md:w-1/2 text-center md:text-left border-l-4 border-[#FFD864] pl-6">
+          <h3 class="text-2xl md:text-3xl font-bold mb-2">Terraform-based Azure VM Scale Set Deployment with Load Balancer and Autoscaling</h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Description: Designed and deployed a production-ready Azure infrastructure using Terraform. The project featured a Virtual Machine Scale Set (VMSS) with a 
+            public-facing Load Balancer, autoscaling based on CPU metrics, and a NAT gateway for secure outbound connectivity.
+            <br>Tools & Technologies: Terraform, Azure VM Scale Sets, Azure Load Balancer, Azure NAT Gateway, Azure Network Security Group (NSG), Remote Backend, Autoscaling
+          </p>
+          <a href="https://github.com/nouman-sh/azure-infrastructure-m1" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#FFD864] text-black font-semibold py-2 px-6 rounded-full hover:shadow-md">
+            View on github
+          </a>
+        </div>
+        <div class="md:w-1/2 overflow-hidden rounded-lg shadow-lg">
+          <img src="assets/cloud project 1.png" alt="Project 1" class="w-full h-auto project-img" />
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 p-6 md:p-10 mb-10">
+        <div class="md:w-1/2 overflow-hidden rounded-lg shadow-lg">
+          <img src="https://placehold.co/600x400/e2e8f0/2d2d2d?text=Project+2" alt="Project 2" class="w-full h-auto project-img" />
+        </div>
+        <div class="md:w-1/2 text-center md:text-left border-l-4 border-[#FFD864] pl-6">
+          <h3 class="text-2xl md:text-3xl font-bold mb-2">Project Name 2</h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <a href="https://github.com/yourusername/project2" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#FFD864] text-black font-semibold py-2 px-6 rounded-full hover:shadow-md">
+            View on github
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <!-- <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 p-6 md:p-10">
+        <div class="md:w-1/2 text-center md:text-left border-l-4 border-[#FFD864] pl-6">
+          <h3 class="text-2xl md:text-3xl font-bold mb-2">Project Name 3</h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#FFD864] text-black font-semibold py-2 px-6 rounded-full hover:shadow-md">
+            View Project
+          </a>
+        </div>
+        <div class="md:w-1/2 overflow-hidden rounded-lg shadow-lg">
+          <img src="https://placehold.co/600x400/cbd5e1/2d2d2d?text=Project+3" alt="Project 3" class="w-full h-auto project-img" />
+        </div>
+      </div> -->
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- Getting in Touch Section -->
+    <section id="getting-in-touch" class="py-12 md:py-24 mt-16 max-w-4xl mx-auto text-center fade-in">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 md:mb-16 gradient-text">Getting in Touch</h2>
+      <div class="flex justify-center space-x-12 text-gray-700 text-4xl">
+        <a href="https://www.linkedin.com/in/nouman-shariff-870646379/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-[#0A66C2] hover:text-[#004182] transition-colors duration-300 social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect width="4" height="12" x="2" y="9"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="https://github.com/nouman-sh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-800 hover:text-gray-600 transition-colors duration-300 social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M15 22s-4-4-6-4c-2 0-6 4-6 4"/>
+            <path d="M10 14h.01"/>
+            <path d="M14 14h.01"/>
+            <path d="M12 18v-8"/>
+            <path d="M10.844 2.809a1 1 0 0 1 1.312 0L17.5 5.5l.775 2.125a1 1 0 0 1-.225 1.05l-4.5 4.5a1 1 0 0 1-1.414 0l-4.5-4.5a1 1 0 0 1-.225-1.05L6.5 5.5l5.344-2.691zM12 21a9 9 0 0 0 9-9c0-4.97-4.03-9-9-9S3 7.03 3 12a9 9 0 0 0 9 9z"/>
+          </svg>
+        </a>
+        <a href="mailto:noumanshariff1815@gmail.com" aria-label="Email" class="text-red-600 hover:text-red-400 transition-colors duration-300 social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M4 4h16v16H4z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Simple scroll fade-in effect
+    function onScrollFadeIn() {
+      const elements = document.querySelectorAll('.fade-in');
+      const windowBottom = window.innerHeight + window.scrollY;
+
+      elements.forEach(el => {
+        const elTop = el.offsetTop + el.clientHeight / 4;
+        if (windowBottom > elTop) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScrollFadeIn);
+    window.addEventListener('load', onScrollFadeIn);
+  </script>
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  
+</body>
+</html>
